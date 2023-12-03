@@ -23,15 +23,16 @@ try {
 
 // CORS when consuming Medusa from admin
 const ADMIN_CORS =
-  process.env.ADMIN_CORS || "http://localhost:7000,http://localhost:7001";
+  process.env.ADMIN_CORS || "/http:\/\/*/";
 
 // CORS to avoid issues when consuming Medusa from a client
-const STORE_CORS = process.env.STORE_CORS || "http://localhost:8000";
+const STORE_CORS = process.env.STORE_CORS || "/http:\/\/*/";
 
 const DATABASE_URL =
-  process.env.DATABASE_URL || "postgres://localhost/medusa-starter-default";
+  process.env.DATABASE_URL || "postgres://medusaserverdatabase_08wx_user:Gc88ylGNKK78PmnW6miZjOxtBBCUvWt6@dpg-clmatphfb9qs739ai6f0-a/medusaserverdatabase_08wx";
 
-const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
+const REDIS_URL = process.env.REDIS_URL || "redis://red-clmauphfb9qs739aimq0:6379";
+
 const SEC_API_KEY = "sk_test_51MOWnmJYOorQDptOW0QQsts0GRYV6JStvh1nXSRqMSUHna1rEQhU6cXRbzyZ1hJtwN3EuYG4v9dI6IHGaHq3H4Oq00s4iQb1A7"
 const plugins = [
   `medusa-fulfillment-manual`,
@@ -83,10 +84,8 @@ const projectConfig = {
   database_type: "postgres",
   store_cors: STORE_CORS,
   admin_cors: ADMIN_CORS,
-
-  // Uncomment the following lines to enable REDIS
-  // redis_url: REDIS_URL
 };
+
 
 /** @type {import('@medusajs/medusa').ConfigModule} */
 module.exports = {
